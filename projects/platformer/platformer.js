@@ -48,7 +48,7 @@ createCollectable("diamond",1010,560,0,0);
 createCollectable("diamond",1040,560,0,0);
 createCollectable("diamond",1070,560,0,0);
 createCollectable("diamond",1100,560,0,0);   
-createCollectable("database",140,570,0,0);    
+createCollectable("grace",140,570,0,0);    
 createCollectable("diamond",950,360,0,0);
 createCollectable("diamond",980,360,0,0);
 createCollectable("diamond",1010,360,0,0);
@@ -56,7 +56,7 @@ createCollectable("diamond",1040,360,0,0);
 createCollectable("diamond",1070,360,0,0);
 createCollectable("diamond",1100,360,0,0);
 createCollectable("max",430,160,0,0); 
-    
+  
     
     // TODO 3
     // Create cannons
