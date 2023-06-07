@@ -60,7 +60,7 @@ $(document).ready(function () {
 
   // TODO 3-a: add a function that handles the static display type
   function handleStatic(data){
-    setBackgroundWithObject(data)
+    setBackgroundWithObject(data);
     animationDetails.displayType = 1
   };
 
@@ -88,13 +88,13 @@ $(document).ready(function () {
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    currentShape = dataShape[currentIndex]
+    currentShape = dataShapes[currentIndex]
     handleGood(currentShape.color, currentShape.shape, currentShape.repeat);
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    var currentShape = dataShape[currentIndex];
+    var currentShape = dataShapes[currentIndex];
     var repeat = currentShape.repeat;
     handleBad(currentShape, repeat);
   }
