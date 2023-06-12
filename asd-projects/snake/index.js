@@ -19,10 +19,10 @@ var ROWS = 20;
 var COLUMNS = 20;
 var SQUARE_SIZE = 20;
 var KEY = {
-  LEFT: 37,
-  UP: 38,
-  RIGHT: 39,
-  DOWN: 40
+  LEFT: 65,
+  UP: 87,
+  RIGHT: 68,
+  DOWN: 83
 };
 
 // interval variable required for stopping the update function when the game ends
@@ -99,7 +99,25 @@ function moveSnake() {
   HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
-  
+  if (snake.head.direction === 'left') {
+    snake.head.column = snake.head.column - 1;
+  }
+  repositionSquare(snake.head);
+
+  if (snake.head.direction === 'right') {
+    snake.head.column = snake.head.column + 1;
+  }
+  repositionSquare(snake.head);
+
+  if (snake.head.direction === 'up') {
+    snake.head.row = snake.head.row - 1;
+  }
+  repositionSquare(snake.head);
+
+  if (snake.head.direction === 'down') {
+    snake.head.row = snake.head.row + 1;
+  }
+  repositionSquare(snake.head);
   
 }
 
@@ -116,7 +134,17 @@ function checkForNewDirection(event) {
   }
 
   // FILL IN THE REST
-  
+  if (activeKey === KEY.RIGHT) {
+    snake.head.direction = "right";
+  }
+
+  if (activeKey === KEY.UP) {
+    snake.head.direction = "up";
+  }
+
+  if (activeKey === KEY.DOWN) {
+    snake.head.direction = "down";
+  }
   // console.log(snake.head.direction);     // uncomment me!
 }
 
@@ -174,11 +202,25 @@ function hasHitWall() {
   /* 
   TODO 7: Should return true if the snake's head has collided with the four walls of the
   board, false otherwise.
-  
+
   HINT: What will the row and column of the snake's head be if this were the case?
   */
-  
-  return false;
+  if (snake.head.row === ROWS){
+    return true;
+  }  
+
+  if (snake.head.row === 0){
+    return true;
+  }  
+
+  if (snake.head.column === COLUMNS){
+    return true;
+  }  
+
+  if (snake.head.column === 0){
+    return true;
+  } 
+  else{return false;}
 }
 
 function endGame() {
@@ -300,6 +342,18 @@ function getRandomAvailablePosition() {
 function handleKeyDown(event) {
   activeKey = event.which;
   console.log(activeKey);
+  if (activeKey === KEY.LEFT){
+    snake.head.direction === "left";
+  }
+  if (activeKey === KEY.RIGHT){
+    snake.head.direction === "right";
+  }
+  if (activeKey === KEY.UP){
+    snake.head.direction === "up";
+  }
+  if (activeKey === KEY.DOWN){
+    snake.head.direction === "down";
+  }
 }
 
 
