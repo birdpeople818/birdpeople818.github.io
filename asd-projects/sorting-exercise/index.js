@@ -14,30 +14,61 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-async function bubbleSort(array){
-    for (i = 0; i === array.length - 1; i++){
-        for (j = array.length - 1; j === i + 1; j++){
+async function bubbleSort(array){             
+
+    for(i = 0; i < array.length; i++){     
+
+        for(j = array.length - 1; j > i; j--){    
+
             if (array[j].value < array[j - 1].value){
                 swap(array, j, j - 1);
                 updateCounter(bubbleCounter);
                 await sleep();
-            } 
+            }
         }
     }
 }
 
 // TODO 3: Implement quickSort
-
+async function quickSort(array, left, right){
+    if ( (right - left) > 0){
+        var index = await partition(array, left, right);
+        if (left < (index - 1) ){
+            await quickSort(array, left, index - 1);
+        }
+        if (right > index){
+            await quickSort(array, index, right);
+        }
+        
+    }
+}
 
 // TODOs 4 & 5: Implement partition
-
+async function partition(array, left, right){
+    var pivot = array[Math.floor((right + left)/2)].value;
+    while (left < right){
+    
+        while (array[left].value < pivot){
+            left++
+        }
+        while (array[right].value > pivot){
+            right--
+        }
+        if (left < right){
+            swap(array, left, right);
+            updateCounter(quickCounter);
+            await sleep();
+        }
+    }
+    return left + 1;
+}
 
 // TODO 1: Implement swap
-function swap(array, i, j, tempArray = []){
-    tempArray[i] = array [j];
-    array[i] = tempArray[i];
-    tempArray[j] = array [i];
-    array[j] = tempArray[j];
+function swap(array, i, j){
+    var val1 = array[i];
+    var val2 = array[j];
+    array [i] = val2;
+    array [j] = val1;
     drawSwap(array, i, j);
 }
 
